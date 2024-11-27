@@ -20,7 +20,6 @@ public class PlayerMovement : MonoBehaviour
             {
                 transform.Translate(Vector3.left * horizontalSpeed * Time.deltaTime);
             }
-            Debug.Log(this.gameObject.transform.position.x);
         }
 
         if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))

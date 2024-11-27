@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1506687222671888994}
   m_Layer: 0
   m_Name: Rock
-  m_TagString: Untagged
+  m_TagString: Rock1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -128,15 +128,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6044553919855103359, guid: 28f22d3d16442a14db3edfbe47bdb3f5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.29
+      value: -6.18
       objectReference: {fileID: 0}
     - target: {fileID: 6044553919855103359, guid: 28f22d3d16442a14db3edfbe47bdb3f5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.27999997
+      value: 7.47
       objectReference: {fileID: 0}
     - target: {fileID: 6044553919855103359, guid: 28f22d3d16442a14db3edfbe47bdb3f5, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -9.7
+      value: -10.93
       objectReference: {fileID: 0}
     - target: {fileID: 6044553919855103359, guid: 28f22d3d16442a14db3edfbe47bdb3f5, type: 3}
       propertyPath: m_LocalRotation.w
