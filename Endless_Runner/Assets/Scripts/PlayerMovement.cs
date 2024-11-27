@@ -1,22 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
     // Start is called before the first frame update
-    public float PlayerSpeed = 2;
-    public float HorizontalSpeed = 3;    // Update is called once per frame
+    public float playerSpeed = 2;
+    public float horizontalSpeed = 3; // Update is called once per frame
+    public float rightLimit = 5.5f;
+    public float leftLimit = -5.5f;
+
     void Update()
     {
-        transform.Translate(Vector3.forward * PlayerSpeed*Time.deltaTime);
-        if (Input.GetKey(KeyCode.A))
+        transform.Translate(Vector3.forward * playerSpeed * Time.deltaTime, Space.World);
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
-            transform.Translate(Vector3.left*HorizontalSpeed*Time.deltaTime);
+            if (this.gameObject.transform.position.x > leftLimit)
+            {
+                transform.Translate(Vector3.left * horizontalSpeed * Time.deltaTime);
+            }
+            Debug.Log(this.gameObject.transform.position.x);
         }
-        if (Input.GetKey(KeyCode.D))
+
+        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
-            transform.Translate(Vector3.right*HorizontalSpeed*Time.deltaTime);
+            if (this.gameObject.transform.position.x < rightLimit)
+            {
+                transform.Translate(Vector3.right * horizontalSpeed * Time.deltaTime );
+            }
         }
     }
 }
