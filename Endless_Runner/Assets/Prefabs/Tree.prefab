@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6027455397849334137}
   - component: {fileID: 7647221815515482552}
   - component: {fileID: 371014945033129012}
+  - component: {fileID: 5441382492860279998}
   m_Layer: 0
   m_Name: Tree
   m_TagString: Tree1
@@ -50,7 +51,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3697637524641801519}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -100,12 +101,24 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5441382492860279998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3697637524641801519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b16054351f6662c43980fbf33aaad307, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7536643555646076210
 PrefabInstance:
   m_ObjectHideFlags: 0

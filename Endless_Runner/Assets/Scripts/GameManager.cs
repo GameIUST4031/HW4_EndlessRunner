@@ -10,7 +10,16 @@ public class GameManager : MonoBehaviour
     public float spawnDistance = 43.066f;
     private float lastSpawnZ;
     private Queue<GameObject> active_prefabs = new Queue<GameObject>();
+    [SerializeField] List<GameObject> obstacles = new List<GameObject>();
     public int obstaclesCount = 11;
+    public float obstacleDistance = 4f;
+    public float minLength = 10f;
+    public float maxLength = 15f;
+    public float left = -4.7f;
+    public float right = 4.7f;
+    private float temp;
+    private Queue<GameObject> obstacles_queue = new Queue<GameObject>();
+    private float maxZ=0;
 
     void Start()
     {
@@ -34,6 +43,7 @@ public class GameManager : MonoBehaviour
         GameObject save4 = Instantiate(floorPrefab, spawnPosition5, Quaternion.identity);
         active_prefabs.Enqueue(save4);
         lastSpawnZ += spawnDistance;
+        InitiateObstacles(obstaclesCount,Player.position.z);
     } // Update is called once per frame
 
     void Update()
@@ -52,18 +62,43 @@ public class GameManager : MonoBehaviour
             GameObject des = active_prefabs.Dequeue();
             Destroy(des);
         }
+        DestroyObstacles();
     }
 
-    void GenrateObstacles(int count)
+    void InitiateObstacles(int count, float zPosition)
     {
         int rand = 0;
+        temp = obstacleDistance;
+        float z = zPosition;
         for (int i = 0; i < count; i++)
         {
-            rand = Random.Range(0, 8);
-            if (rand == 0)
+            rand = Random.Range(0, obstacles.Count);
+            if (rand < 3)
             {
-                
+                GameObject obj = Instantiate(obstacles[rand],
+                    new Vector3(Random.Range(left, right), 0.6f, z+temp), Player.rotation);
+                obstacles_queue.Enqueue(obj);
+                maxZ=obj.transform.position.z;
             }
+            else
+            {
+                GameObject obj = 
+                Instantiate(obstacles[rand],
+                    new Vector3(Random.Range(left, right),1.5f, z+temp), Player.rotation);
+                obstacles_queue.Enqueue(obj);
+                maxZ = obj.transform.position.z;
+            }
+            temp+=obstacleDistance;
+        }
+    }
+
+    void DestroyObstacles()
+    {
+        float z = Player.position.z;
+        if (obstacles_queue.Peek().transform.position.z < z-10f)
+        {
+            Destroy(obstacles_queue.Dequeue());
+            InitiateObstacles(1,maxZ);
         }
     }
 }

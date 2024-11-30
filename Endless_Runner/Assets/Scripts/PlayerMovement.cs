@@ -2,14 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class PlayerMovement : MonoBehaviour
 {
     // Start is called before the first frame update
     public float playerSpeed = 2;
-    public float horizontalSpeed = 3; // Update is called once per frame
+    public float horizontalSpeed = 6f; // Update is called once per frame
     public float rightLimit = 5.5f;
     public float leftLimit = -5.5f;
+    public float MaxSpeed= 5.5f;
+    public float MinSpeed=3f;
+    public float MaxHorizontalSpeed = 8f;
+    public float MinHorizontalSpeed = 6f;
 
     void Update()
     {
@@ -19,9 +24,9 @@ public class PlayerMovement : MonoBehaviour
             if (this.gameObject.transform.position.x > leftLimit)
             {
                 transform.Translate(Vector3.left * horizontalSpeed * Time.deltaTime);
+                
             }
-        }
-
+        } 
         if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
             if (this.gameObject.transform.position.x < rightLimit)
@@ -29,5 +34,8 @@ public class PlayerMovement : MonoBehaviour
                 transform.Translate(Vector3.right * horizontalSpeed * Time.deltaTime );
             }
         }
+        playerSpeed = Mathf.Clamp(playerSpeed*1.0001f, MinSpeed, MaxSpeed);
+        horizontalSpeed = Mathf.Clamp(horizontalSpeed*1.0001f, MinHorizontalSpeed, MaxHorizontalSpeed);
+        
     }
 }

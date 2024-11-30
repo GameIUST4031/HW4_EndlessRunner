@@ -13,6 +13,8 @@ TagManager:
   - Tree3
   - Tree4
   - Tree5
+  - player
+  - EVE
   layers:
   - Default
   - TransparentFX
