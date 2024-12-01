@@ -358,6 +358,7 @@
 -analyzer:"C:/Program Files/Unity/Hub/Editor/2022.3.51f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.Properties.SourceGenerator.dll"
 -analyzer:"C:/Program Files/Unity/Hub/Editor/2022.3.51f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
 "Assets/Koosha/DataBaseScript.cs"
+"Assets/Scripts/AudioHandler.cs"
 "Assets/Scripts/ColiisionDetect.cs"
 "Assets/Scripts/GameManager.cs"
 "Assets/Scripts/HighestScore.cs"
