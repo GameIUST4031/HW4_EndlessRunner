@@ -20,7 +20,9 @@ public class GameManager : MonoBehaviour
     private float temp;
     private Queue<GameObject> obstacles_queue = new Queue<GameObject>();
     private float maxZ=0;
-
+    private PopupMessage _popupMessage;
+    
+    
     void Start()
     {
         lastSpawnZ = Player.position.z;
@@ -44,6 +46,8 @@ public class GameManager : MonoBehaviour
         active_prefabs.Enqueue(save4);
         lastSpawnZ += spawnDistance;
         InitiateObstacles(obstaclesCount,Player.position.z);
+        _popupMessage = this.gameObject.GetComponent<PopupMessage>();
+        // _popupMessage.Open("1.png"," salam");
     } // Update is called once per frame
 
     void Update()

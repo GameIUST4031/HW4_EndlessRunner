@@ -360,7 +360,9 @@
 "Assets/Koosha/DataBaseScript.cs"
 "Assets/Scripts/ColiisionDetect.cs"
 "Assets/Scripts/GameManager.cs"
+"Assets/Scripts/HighestScore.cs"
 "Assets/Scripts/PlayerMovement.cs"
+"Assets/Scripts/PopupMessage.cs"
 -langversion:9.0
 /deterministic
 /optimize+

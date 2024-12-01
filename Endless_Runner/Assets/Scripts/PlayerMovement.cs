@@ -1,3 +1,5 @@
+using System;
+using System.IO;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -15,6 +17,34 @@ public class PlayerMovement : MonoBehaviour
     public float MinSpeed=3f;
     public float MaxHorizontalSpeed = 8f;
     public float MinHorizontalSpeed = 6f;
+    public int currentScore = 0;
+    public int highScore = 0;
+    private float startZ;
+
+    private void Start()
+    {
+        highScore = PlayerPrefs.GetInt("HighScore", 0);
+        startZ=gameObject.transform.position.z;
+    }
+    private void CheckForHighScore()
+    {
+        if (currentScore > highScore)
+        {
+            highScore = currentScore;
+            PlayerPrefs.SetInt("HighScore", highScore); // Save new high score
+            PlayerPrefs.Save(); // Optional: explicitly save the PlayerPrefs
+        }
+    }
+
+    public int GetHighScore()
+    {
+        return highScore;
+    }
+
+    public void ResetCurrentScore()
+    {
+        currentScore = 0; // Reset current score when needed
+    }
 
     void Update()
     {
@@ -34,8 +64,9 @@ public class PlayerMovement : MonoBehaviour
                 transform.Translate(Vector3.right * horizontalSpeed * Time.deltaTime );
             }
         }
+        currentScore=(int)(transform.position.z-startZ);
+        CheckForHighScore();   
         playerSpeed = Mathf.Clamp(playerSpeed*1.0001f, MinSpeed, MaxSpeed);
         horizontalSpeed = Mathf.Clamp(horizontalSpeed*1.0001f, MinHorizontalSpeed, MaxHorizontalSpeed);
-        
     }
 }

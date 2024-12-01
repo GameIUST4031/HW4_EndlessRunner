@@ -15,6 +15,8 @@ TagManager:
   - Tree5
   - player
   - EVE
+  - GameOver
+  - GameManager
   layers:
   - Default
   - TransparentFX
