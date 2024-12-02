@@ -7,11 +7,9 @@ public class PopupMessage : MonoBehaviour {
     public GameObject ui;
     public Texture GameOverTexture;
     public void Open(string inventoryStuffName, string message,string message_2){
-        Debug.Log(ui.activeSelf);
         ui.SetActive (!ui.activeSelf);
         if (ui.activeSelf) {
             if(!string.IsNullOrEmpty(inventoryStuffName)){
-                Debug.Log(inventoryStuffName);
                 RawImage rawImage = ui.gameObject.GetComponentInChildren<RawImage>();
                 rawImage.texture = GameOverTexture;
             }
@@ -30,5 +28,4 @@ public class PopupMessage : MonoBehaviour {
         } 
         SceneManager.LoadScene ("SampleScene");
     }
-//You need to have Folder Resources/InvenotryItems
 }
